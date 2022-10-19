@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+<!--    <TextView-->
+<!--        android:layout_gravity="bottom"-->
+<!--        android:layout_marginBottom="70px"-->
+<!--        android:id="@+id/smsText"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="150px"-->
+<!--        android:text="SMS테스트 입니다. SMS테스트 입니다. SMS테스트 입니다."-->
+<!--        android:paddingHorizontal="16dp"-->
+<!--        android:textStyle="bold"-->
+<!--        android:textSize="110px"-->
+<!--        android:focusable="true"-->
+<!--        android:singleLine="true"-->
+<!--        android:ellipsize="marquee"-->
+
+<!--        android:marqueeRepeatLimit="marquee_forever"-->
+<!--        android:scrollHorizontally="true"-->
+<!--        android:focusableInTouchMode="true"-->
+<!--        android:textColor="@color/white"-->
+<!--        android:background="#1D6ECC"-->
+<!--        android:textAlignment="center"-->
+<!--        android:gravity="center"/>-->
+
+
+
+    <FrameLayout
+        android:id="@+id/smsFrame"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="300dp"
+        android:background="#0000CD">
+
+        <com.xzl.marquee.library.MarqueeView
+            android:id="@+id/marquee"
+            android:layout_width="match_parent"
+            android:layout_height="193dp"
+            android:layout_gravity="center_vertical"
+            app:speed="50dp"
+            app:text_color="@android:color/white"
+            app:text_shadowColor="@android:color/black"
+            app:text_size="70sp"
+            app:txt_dx="1.0"
+            app:txt_dy="1.0"
+            app:txt_radius="1.0"
+            app:txt_spacing="15dp" />
+    </FrameLayout>
+
+
+
+
+</LinearLayout>
