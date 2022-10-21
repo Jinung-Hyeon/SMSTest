@@ -37,6 +37,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="300dp"
+        android:layout_gravity="bottom"
         android:background="#0000CD">
 
         <com.xzl.marquee.library.MarqueeView

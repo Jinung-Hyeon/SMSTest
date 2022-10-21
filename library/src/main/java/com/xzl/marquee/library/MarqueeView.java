@@ -15,6 +15,8 @@ import android.view.View;
 import android.view.animation.LinearInterpolator;
 import android.widget.FrameLayout;
 
+import java.util.List;
+
 /**
  * Created by xzwszl on 17/2/13.
  */
@@ -31,6 +33,7 @@ public class MarqueeView extends View {
     private boolean mIsRunning;
     private int mSpacing;
     private TimeInterpolator mInterpolator;
+    private List<String> smsTextList;
 
     public MarqueeView(Context context) {
         this(context, null);
@@ -45,8 +48,15 @@ public class MarqueeView extends View {
         init(context, attrs);
     }
 
+    public MarqueeView(Context context, AttributeSet attrs, int defStyleAttr, List<String> smsText) {
+        super(context, attrs, defStyleAttr);
+        this.smsTextList = smsText;
+        //init(context, attrs);
+    }
+
 
     private void init(Context context, AttributeSet attrs) {
+        Log.d("msgmsg", "init - smsTextList : " + smsTextList);
         mPaint = new TextPaint();
         mPaint.setAntiAlias(true);
         mCurLeft = 0;
@@ -71,8 +81,8 @@ public class MarqueeView extends View {
         //mLastLeft = mPaint.measureText(mText); // 시작지점
         mAnimator = ValueAnimator.ofFloat(0, 1);
         mAnimator.setInterpolator(mInterpolator == null ? new LinearInterpolator() : mInterpolator);
-        mAnimator.setRepeatCount(ValueAnimator.INFINITE);
-        mAnimator.setRepeatMode(ValueAnimator.RESTART);
+        //mAnimator.setRepeatCount(ValueAnimator.INFINITE);
+        //mAnimator.setRepeatMode(ValueAnimator.RESTART);
         mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
@@ -90,11 +100,14 @@ public class MarqueeView extends View {
             @Override
             public void onAnimationStart(Animator animation) {
                 Log.d("msgmsg", "onAnimationStart: ");
+
             }
 
             @Override
             public void onAnimationEnd(Animator animation) {
                 Log.d("msgmsg", "onAnimationEnd: ");
+                setText("하느님이 보우하사 우리나라 만세");
+                start();
             }
 
             @Override
@@ -149,8 +162,8 @@ public class MarqueeView extends View {
             ensureAnimator();
         }
 
-        if (mIsRunning) return;
-        mIsRunning = true;
+        //if (mIsRunning) return;
+        //mIsRunning = true;
         mAnimator.setDuration((long) (mLength * 1000 / mSpeed));
         mAnimator.start();
     }
